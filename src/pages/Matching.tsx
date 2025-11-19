@@ -13,7 +13,7 @@ const Matching = () => {
       return;
     }
 
-    // Simulate matching process
+    // Simulate matching process (slower to show message)
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -21,9 +21,9 @@ const Matching = () => {
           setTimeout(() => navigate("/results"), 500);
           return 100;
         }
-        return prev + 2;
+        return prev + 1;
       });
-    }, 50);
+    }, 80);
 
     return () => clearInterval(interval);
   }, [navigate]);
@@ -37,7 +37,7 @@ const Matching = () => {
             Finding Your Perfect Matches
           </h1>
           <p className="text-lg text-muted-foreground mb-8">
-            Analyzing thousands of retail stores based on your product market fit...
+            Finding matches based on your product market fit and the data we collected from retail stores
           </p>
 
           {/* Progress Bar */}
