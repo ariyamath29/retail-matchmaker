@@ -138,10 +138,18 @@ const Results = () => {
                     </div>
                   </div>
 
+                  {/* Store Niche */}
+                  <div className="mb-4 p-4 bg-secondary/50 rounded-lg border border-border">
+                    <p className="text-sm font-semibold text-foreground mb-1">
+                      Store Niche:
+                    </p>
+                    <p className="text-foreground italic">{match.niche}</p>
+                  </div>
+
                   {/* Demographics */}
                   <div className="mb-6 p-4 bg-secondary/50 rounded-lg">
                     <p className="text-sm font-semibold text-foreground mb-1">
-                      Target Demographics:
+                      Store Demographics:
                     </p>
                     <p className="text-foreground">{match.demographics}</p>
                   </div>
