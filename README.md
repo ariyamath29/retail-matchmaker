@@ -60,6 +60,13 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Connect to Supabase
+
+1. Copy `.env.local.example` to `.env.local` and keep it at the project root.
+2. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` with your Supabase project values (the shared anonymous key is safe for the browser). Keep the `SUPABASE_SERVICE_ROLE_KEY` for server-side tooling only—do **not** expose it to the client bundle.
+3. Install dependencies with `npm install` (already done if you ran the command earlier).
+4. Start the Vite dev server with `npm run dev` and visit the provided URL.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/cee2356b-91ef-4975-b0bc-147b03307b8a) and click on Share -> Publish.

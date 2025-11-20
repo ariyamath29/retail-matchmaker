@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Globe, Instagram } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
+import { createSellerProfile } from "@/lib/matchmaking";
+import { Globe, Instagram, Loader2 } from "lucide-react";
 
 const Survey = () => {
   const navigate = useNavigate();
@@ -15,12 +17,32 @@ const Survey = () => {
     website: "",
     instagram: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Store form data in session storage for now
-    sessionStorage.setItem("surveyData", JSON.stringify(formData));
-    navigate("/analysis");
+    setIsSubmitting(true);
+    try {
+      const sellerId = await createSellerProfile(formData);
+      sessionStorage.setItem("surveyData", JSON.stringify(formData));
+      sessionStorage.setItem("sellerId", sellerId);
+      toast({
+        title: "Brand profile saved",
+        description: "We stored your answers in Supabase and will use them to find matches.",
+      });
+      navigate("/analysis");
+    } catch (error) {
+      console.error(error);
+      toast({
+        variant: "destructive",
+        title: "We couldn't save your profile",
+        description:
+          error instanceof Error ? error.message : "Please check your internet connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -142,8 +164,16 @@ const Survey = () => {
               type="submit"
               size="lg"
               className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-primary to-primary-light hover:opacity-90 transition-opacity"
+              disabled={isSubmitting}
             >
-              Continue to Analysis
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Saving your profile...
+                </>
+              ) : (
+                "Continue to Analysis"
+              )}
             </Button>
           </form>
         </div>
