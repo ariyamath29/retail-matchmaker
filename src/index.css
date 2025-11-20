@@ -17,32 +17,37 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Professional blue primary */
+    /* Professional blue primary 
     --primary: 211 85% 45%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 211 85% 55%;
-    --primary-dark: 211 85% 35%;
+    --primary-dark: 211 85% 35%;*/
+
+    --primary: 73 69% 21%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 73 69% 31%;
+    --primary-dark: 73 69% 15%;
 
     /* Soft secondary */
-    --secondary: 215 20% 96%;
+    --secondary: 82 47% 84%;
     --secondary-foreground: 215 25% 20%;
 
-    --muted: 215 20% 96%;
+    --muted: 82 47% 84%;
     --muted-foreground: 215 15% 45%;
 
     /* Growth accent */
-    --accent: 160 70% 45%;
+    --accent: 89 14% 55%;
     --accent-foreground: 0 0% 100%;
     
     /* Success state */
-    --success: 145 65% 45%;
+    --success: 89 14% 55%;
     --success-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 215 20% 88%;
-    --input: 215 20% 92%;
+    --input: 82 47% 84%;
     --ring: 211 85% 45%;
 
     --radius: 0.75rem;
@@ -63,7 +68,7 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 82 47% 84%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
 
