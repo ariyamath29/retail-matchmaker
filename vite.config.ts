@@ -8,11 +8,23 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    strictPort: true,
+    hmr: {
+      overlay: true,
+    },
   },
+  clearScreen: false,
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  css: {
+    devSourcemap: true,
+  },
+  build: {
+    sourcemap: true,
+  },
 }));
+
